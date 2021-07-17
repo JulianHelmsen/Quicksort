@@ -3,7 +3,7 @@
 .balign 4
 
 len:
-	.word 30
+	.word 3000
 format_string:
 	.asciz "%d "
 format_string_new_line:
