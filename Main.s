@@ -17,16 +17,11 @@ format_string_new_line:
 @ param arrayLen: r1
 quicksort_helper:
 	
-	@ push {r0, r1, lr}
-	@ bl print
-	@ pop {r0, r1, lr}
-
 	@ if (len < 1) return;
 	cmp r1, #1
-	bgt .moreThanOneElement
-	bx lr
+	@ bxle => branch and change instruction set if less or equal
+	bxle lr
 
-.moreThanOneElement:
 	push {r4, r5, r6, r7, r8, r9, lr}
 	@ choose pivot
 	@ TODO: Random pivot
