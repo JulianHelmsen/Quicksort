@@ -125,10 +125,9 @@ quicksort_helper:
 quicksort:
 	push {lr}
 
-	@ prepare for quicksort_helper(arrayPtr, len, 0)
+	@ already prepared for quicksort_helper(arrayPtr, len)
 	@ r0 already contains base address of array
 	@ r1 already contains length of the array
-	@ r2 should contain the offset into the array which should be zero for the first call to quicksort_helper
 	bl quicksort_helper	
 
 	pop {lr}
