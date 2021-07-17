@@ -205,7 +205,6 @@ main:
 	mov r0, sp
 	bl puts
 	pop {r0}
-	mov r0, r7
 	
 	@ prepare for function call to quicksort(arrayptr, len)
 	mov r0, r7 @ array ptr
