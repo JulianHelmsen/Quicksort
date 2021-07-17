@@ -221,7 +221,7 @@ main:
 	pop {r0}
 	bl free
 	pop {r4, r5, r6, r7, lr}
-	mov r0, #2
+	mov r0, #0
 	bx lr
 
 addr_len: .word len
