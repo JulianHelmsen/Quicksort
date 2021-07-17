@@ -105,7 +105,6 @@ quicksort_helper:
 	str r4, [r0, +r5, lsl #2]
 
 
-.recursion:
 	@ make recursive call to quicksort helper on new sub arrays
 	push {r0, r5}
 	add r5, #1 @ pivot doesn't need to be resorted again. This is the reason for adding one
