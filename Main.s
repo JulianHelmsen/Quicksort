@@ -15,7 +15,7 @@ format_string_new_line:
 @ Function which actually sorts the array
 @ param array base ptr : r0
 @ param arrayLen: r1
-quicksort_helper:
+quicksort:
 	
 	@ if (len < 1) return;
 	cmp r1, #1
@@ -110,26 +110,13 @@ quicksort_helper:
 	add r5, #1 @ pivot doesn't need to be resorted again. This is the reason for adding one
 	sub r1, r5
 	add r0, r5, lsl #2
-	bl quicksort_helper
+	bl quicksort
 
 	pop {r0, r5}
 	mov r1, r5
-	bl quicksort_helper
+	bl quicksort
 
 	pop {r4, r5, r6, r7, r8, r9, lr}
-	bx lr
-
-@ param array base: r0
-@ param array len: r1
-quicksort:
-	push {lr}
-
-	@ already prepared for quicksort_helper(arrayPtr, len)
-	@ r0 already contains base address of array
-	@ r1 already contains length of the array
-	bl quicksort_helper	
-
-	pop {lr}
 	bx lr
 
 @ param base addr: r0
